@@ -1,0 +1,12 @@
+import tensorflow as tf
+import pandas as pd 
+import numpy as np
+import openpyxl
+
+df = pd.read_excel("StrongCorellationData.xlsm")
+#df = df.loc["Total interest income of savers (dollars x 1,000)":"Total savers (number)", : ]
+df = df.loc[11:12, :]
+df =  df.T.reset_index().reindex(columns=[11,12,'index'])
+
+print(df)
+df.to_excel('final.xlsx')
